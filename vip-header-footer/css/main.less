@@ -1,0 +1,127 @@
+/* 重置样式 */
+
+body,div,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,p{
+	margin: 0;
+	padding: 0;
+}
+ul,ol,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	display: block;
+}
+img{
+	border: 0;
+	display: block;
+}
+h1,h2,h3,h4,h5,h6,em,strong,b{
+	font-weight: normal;
+}
+.clearfix{
+	zoom: 1;
+}
+.clearfix:after{
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0;
+}
+
+
+.footer{
+    font: 12px/1.5 Micro Hei,sans-serif ;
+    display: block;
+    clear: both;
+    overflow: hidden;
+    line-height: 22px;
+    margin-top: 50px;
+    padding-top: 0;
+    border-top: 1px solid #ebebeb;
+    background-color: #fff;
+    color: #4d4d4d;
+    .footer-inner{
+        width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+        .footer-vip{
+            overflow: hidden;
+            outline: 1px solid #0dd;
+            li{
+                float: left;
+            }
+            i{
+                display: block;
+                margin-top: 30px;
+                margin-right: 66px;
+                margin-left: 5px;
+                width: 66px;
+                height: 96px;
+                font-size: 0;
+                text-indent: -100%;
+            }
+            .footer-vip-ico1{
+                background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+            }
+            .footer-vip-ico2{
+                background: url('../images/footer_vip_icons.png') no-repeat -148px -9px;
+            }
+            .footer-vip-ico3{
+                background: url('../images/footer_vip_icons.png') no-repeat -295px -9px;
+            }
+            .footer-vip-ico4{
+                background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+            }
+            .footer-vip-ico5{
+                background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+            }
+            .footer-vip-ico6{
+                background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+            }
+            .footer-vip-ico7{
+                background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+            }
+        }
+        .footer-list{
+            overflow: hidden;
+            zoom: 1;
+            margin: 37px 0 25px;
+            line-height: 20px;
+            // box-sizing: border-box;
+            dl{
+                float: left;
+                width: 145px;
+                height: 146px;
+                padding-left: 16px;
+                border-right: 1px solid #e0e0e0;
+                dt{
+                    margin-bottom: 4px;
+                    color: #4d4d4d;
+                }
+                dd{
+                    -webkit-transition: -webkit-transform ease-out .2s;
+                }
+            }
+            .link:first-child{
+                padding-left: 0;
+            }
+            .last{
+                padding-left: 16px;
+                width: 136px;
+                border-right: none;
+                text-align: center;
+                img{
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+        }
+        .footer-info{}
+    }
+    .footer-ft{
+        padding: 4px 0 4px;
+        background-color: #fff;
+    }
+}

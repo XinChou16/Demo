@@ -1,0 +1,146 @@
+/* 重置样式 */
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+img {
+  border: 0;
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: normal;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+.footer {
+  font: 12px/1.5 Micro Hei, sans-serif;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  line-height: 22px;
+  margin-top: 50px;
+  padding-top: 0;
+  border-top: 1px solid #ebebeb;
+  background-color: #fff;
+  color: #4d4d4d;
+}
+.footer .footer-inner {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.footer .footer-inner .footer-vip {
+  overflow: hidden;
+  outline: 1px solid #0dd;
+}
+.footer .footer-inner .footer-vip li {
+  float: left;
+}
+.footer .footer-inner .footer-vip i {
+  display: block;
+  margin-top: 30px;
+  margin-right: 66px;
+  margin-left: 5px;
+  width: 66px;
+  height: 96px;
+  font-size: 0;
+  text-indent: -100%;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico1 {
+  background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico2 {
+  background: url('../images/footer_vip_icons.png') no-repeat -148px -9px;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico3 {
+  background: url('../images/footer_vip_icons.png') no-repeat -295px -9px;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico4 {
+  background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico5 {
+  background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico6 {
+  background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+}
+.footer .footer-inner .footer-vip .footer-vip-ico7 {
+  background: url('../images/footer_vip_icons.png') no-repeat -10px -9px;
+}
+.footer .footer-inner .footer-list {
+  overflow: hidden;
+  zoom: 1;
+  margin: 37px 0 25px;
+  line-height: 20px;
+}
+.footer .footer-inner .footer-list dl {
+  float: left;
+  width: 145px;
+  height: 146px;
+  padding-left: 16px;
+  border-right: 1px solid #e0e0e0;
+}
+.footer .footer-inner .footer-list dl dt {
+  margin-bottom: 4px;
+  color: #4d4d4d;
+}
+.footer .footer-inner .footer-list dl dd {
+  -webkit-transition: -webkit-transform ease-out 0.2s;
+}
+.footer .footer-inner .footer-list .link:first-child {
+  padding-left: 0;
+}
+.footer .footer-inner .footer-list .last {
+  padding-left: 16px;
+  width: 136px;
+  border-right: none;
+  text-align: center;
+}
+.footer .footer-inner .footer-list .last img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+.footer .footer-ft {
+  padding: 4px 0 4px;
+  background-color: #fff;
+}
