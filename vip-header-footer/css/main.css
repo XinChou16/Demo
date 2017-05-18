@@ -24,7 +24,6 @@ li {
 }
 a {
   text-decoration: none;
-  display: block;
 }
 img {
   border: 0;
@@ -137,8 +136,31 @@ b {
 }
 .footer .footer-inner .footer-list .last img {
   display: block;
-  width: 100px;
-  height: 100px;
+  margin: 0 auto;
+}
+.footer .footer-inner .footer-info {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 0;
+}
+.footer .footer-inner .footer-info .footer-info-link {
+  background-color: #d7237e;
+  line-height: 30px;
+}
+.footer .footer-inner .footer-info .footer-info-link a {
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+  color: #fff;
+}
+.footer .footer-inner .footer-info .footer-info-txt {
+  color: #999;
+}
+.footer .footer-inner .footer-info .footer-info-txt a {
+  color: #999;
+}
+.footer .footer-inner .footer-info .footer-info-txt img {
+  display: inline-block;
 }
 .footer .footer-ft {
   padding: 4px 0 4px;
