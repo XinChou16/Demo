@@ -50,6 +50,30 @@ b {
   visibility: hidden;
   height: 0;
 }
+.common-header {
+  height: 28px;
+  line-height: 28px;
+  background-color: #f5f5f5;
+  color: #777;
+  font-size: 14px;
+}
+.common-header .header-inner {
+  width: 1000px;
+  margin: 0 auto;
+}
+.common-header .header-inner .area {
+  float: left;
+}
+.common-header .header-inner .nav {
+  float: right;
+}
+.common-header .header-inner .nav li {
+  float: left;
+  margin-left: 15px;
+}
+.common-header .header-inner .nav li a {
+  color: #777;
+}
 .footer {
   font: 12px/1.5 Micro Hei, sans-serif;
   display: block;
