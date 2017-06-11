@@ -28,7 +28,7 @@ router.use( function (req,res,next) {
  */
 // 注册路由
 router.post('/user/register',function(req,res,next){
-
+ 
     //    console.log( req.body);
    var username = req.body.username;
    var password = req.body.password;

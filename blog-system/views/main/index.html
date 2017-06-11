@@ -1,112 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>我的博客</title>
-    <link rel="stylesheet" href="/public/css/main.css">
-    <script src="/public/js/jquery-1.8.3.min.js"></script>
-    <script src="/public/js/index.js"></script>
-</head>
-<body>
-    <header>
-        <div class="backimg"><img src="/public/images/scnu.jpg" alt=""></div>
-        <!--<div class="logo"><span><img src="/public/images/" alt=""></span></div>-->
-    </header>
+ {%extends 'layout.html'%}
 
-    <nav>
-        <div class="menu">
-            <a href="/" class="focus">首页</a>
-            <a href="">HTML5</a>
-            <a href="">HTML5</a>
-            <a href="">HTML5</a>
-            <a href="">HTML5</a>
-        </div>
-    </nav>
-    
-    <div class="box">
-        <div class="leftBox" id="leftBox">
-            <div class="article">
-                <h1 class="title">title</h1>
-                <p class="subtitle">
-                    作者<span>admin</span>
-                    时间<span>2017-06-01</span>
-                    时间<span>2017-06-01</span>
-                    时间<span>2017-06-01</span>
-                </p>
-                <p class="content">
-                    content
-                </p>
-                <div class="read">
-                    阅读全文
-                </div>
-            </div>
-            <div class="article">
-                <h1 class="title">title</h1>
-                <p class="subtitle">
-                    作者<span>admin</span>
-                    时间<span>2017-06-01</span>
-                    时间<span>2017-06-01</span>
-                    时间<span>2017-06-01</span>
-                </p>
-                <p class="content">
-                    content
-                </p>
-                <div class="read">
-                    阅读全文
-                </div>
-            </div>
-            <div class="article">
-                <h1 class="title">title</h1>
-                <p class="subtitle">
-                    作者<span>admin</span>
-                    时间<span>2017-06-01</span>
-                    时间<span>2017-06-01</span>
-                    时间<span>2017-06-01</span>
-                </p>
-                <p class="content">
-                    content
-                </p>
-                <div class="read">
-                    阅读全文
-                </div>
-            </div>
-        </div>
-        <div class="rightBox-wrap">
+ {%block content%}
 
+ {%for content in contents%}
 
-            {% if userInfo._id%}
-            <div class="rightBox" id="userInfo" >
-                <h1 class="title">管理界面</h1>
-                <p>我是管理员<a href="javascript:;" class="username">{{userInfo.username}}</a></p>
-                {% if userInfo.isAdmin %}
-                <p class="info"></p>
-                <p><span class="colDark"><a class="logout" id="logout" href="javascript:;">退出</a></span></p>
-                <p class="colWarning textCenter"></p>
-            </div>
-            {% else%}
-            <div class="rightBox" id="loginBox" >
-                <div class="title"><span>登录</span></div>
-                <div class="line"><span class="colDark">用户名：</span><input type="text" name="username"><em></em></div>
-                <div class="line"><span class="colDark">密码：</span><input type="password" name="password"><em></em></div>
-                <div class="line"><span class="colDark"><button>登录</button> </span></div>
-                <p class="textRight">还没注册？<a href="javascript:;" class="colMint">马上注册</a></p>
-                <p class="colWarning textCenter"></p>
-            </div>
-
-            <div class="rightBox" id="registerBox" style="display: none;">
-                <div class="title"><span>注册</span></div>
-                <div class="line"><span class="colDark">用户名：</span><input type="text" name="username"></div>
-                <div class="line"><span class="colDark">密码：</span><input type="password" name="password"></div>
-                <div class="line"><span class="colDark">确认：</span><input type="password" name="repassword"></div>
-                <div class="line"><span class="colDark"><button>注册</button> </span></div>
-                <p class="textRight">已有帐号？<a href="javascript:;" class="colMint">马上登录</a></p>
-                <p class="colWarning textCenter"></p>
-            </div>
-            {%endif%}
-        </div>
+<div class="article">
+    <h1 class="title">{{content.title}}</h1>
+    <p class="subtitle">
+        作者<span>{{content.user.username}}</span> 时间
+        <span>{{ content.addTime |date('Y-m-d H:i:s',-8*60)}}</span> 阅读
+        <span>{{content.view}}</span> 评论
+        <span>{{content.view}}</span>
+    </p>
+    <p class="content">
+        {{content.description}}
+    </p>
+    <div class="read">
+        <a href="/view?contentid={{content.id}}">阅读全文</a>
     </div>
-    
-</body>
-</html>
+</div>
+{%endfor%}
+
+<!--分页-->
+<ul class="pages">
+    {%if page
+    <=1 %} <li><span>没有上一页了</span></li>
+        {%else%}
+        <li><a href="/?categry={{categry}}&page={{page-1}}">上一页</a></li>
+        {%endif%}
+        <li><a href="javascript:;">{{page}}/{{pages}}</a></li>
+        <li>
+
+            {%if page >= pages%}
+            <span>没有下一页了</span> {%else%}
+            <a href="/?categry={{categry}}&page={{page-1}}">下一页</a> {%endif%}
+        </li>
+</ul>
+ {%endblock%}
