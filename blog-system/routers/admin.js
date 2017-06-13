@@ -1,14 +1,18 @@
 /** admin router module */
 
+// 加载所需模块
 var express = require('express');
 var router = express.Router();
+// 加载数据库模型
 var User = require('../models/User');
 var Category = require('../models/category');
 var Content = require('../models/content');
 
+// admin主路由，渲染首页
 router.get('/', function (req, res, next) {
+
     res.render('admin/index', {
-        userInfo: req.userInfo
+        userInfo: req.userInfo //传入用户信息数据
     });
 
 });
@@ -22,11 +26,11 @@ router.get('/user', (req, res) => {
      * limit(num)，限制条数
      * skip(),忽略数据的条数
      * 每页显示2条
-     * 
      */
     var page = Number(req.query.page || 1);
     var limit = 2;
     var pages = 0;
+
     User.count().then((count) => {
 
         pages = Math.ceil(count / limit);
@@ -50,6 +54,8 @@ router.get('/user', (req, res) => {
     });
 
 });
+
+
 
 /**
  * 分类首页
@@ -83,7 +89,7 @@ router.get('/category', (req, res) => {
 });
 
 /**
- * 分类首页
+ * 分类的增加，GET请求
  */
 router.get('/category/add', (req, res) => {
 
@@ -94,7 +100,7 @@ router.get('/category/add', (req, res) => {
 });
 
 /**
- * 分类的增加
+ * 分类的增加，POST请求
  */
 router.post('/category/add', function (req, res) {
 
@@ -129,11 +135,12 @@ router.post('/category/add', function (req, res) {
             message: '分类保存成功',
             url: '/admin/category'
         })
-    })
+    });
+
 });
 
 /**
- * 分类的修改
+ * 分类的编辑 - GET
  */
 router.get('/category/edit', function (req, res) {
     // 获取要修改的分类信息，以表单形式展现
@@ -169,7 +176,7 @@ router.get('/category/edit', function (req, res) {
 
 
 /**
- * 分类的保存
+ * 分类的编辑 - POST
  */
 router.post('/category/edit', function (req, res) {
     // 获取要修改的分类信息，以表单形式展现
@@ -242,7 +249,10 @@ router.get('/category/delete', function (req, res) {
             url: '/admin/category'
         })
     });
+
 });
+
+
 
 /**
  * 内容首页
@@ -279,6 +289,9 @@ router.get('/content', (req, res) => {
     });
 });
 
+/**
+ * 内容的添加 - GET
+ */
 router.get('/content/add', (req, res) => {
 
     Category.find().sort({ _id: -1 }).then(function (categories) {
@@ -292,7 +305,7 @@ router.get('/content/add', (req, res) => {
 
 
 /**
- * 内容的保存
+ * 内容的添加 - POST
  */
 router.post('/content/add', function (req, res) {
     // console.log(req.body)
@@ -336,7 +349,7 @@ router.post('/content/add', function (req, res) {
 });
 
 /**
- * 内容的修改
+ * 内容的编辑 - GET
  */
 router.get('/content/edit', function (req, res) {
     // 获取要修改的内容信息，以表单形式展现
@@ -380,7 +393,7 @@ router.get('/content/edit', function (req, res) {
 });
 
 /**
- * 保存内容修改
+ * 保存内容编辑 - POST
  */
 router.post('/content/edit', function (req, res) {
     // 获取要修改的内容信息，以表单形式展现
@@ -442,9 +455,6 @@ router.get('/content/delete', function (req, res) {
         })
     });
 });
-
-
-
 
 
 

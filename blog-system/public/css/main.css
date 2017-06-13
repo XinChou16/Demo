@@ -6,7 +6,7 @@ img{
     display: block;
 }
 body{
-    background-color: #ccc;
+    background-color: #dedede;
 }
 header img {
     width: 100%;
@@ -29,6 +29,10 @@ header img {
     float: left;
     background-color: #ccc;
     box-sizing: border-box;
+}
+.box .leftBox{
+    background-color: #fff;
+    padding: 10px;
 }
 .box .leftBox .article {
     margin-bottom: 30px;

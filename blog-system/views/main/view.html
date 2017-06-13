@@ -1,17 +1,60 @@
- {%extends 'layout.html'%} {%block content%}
+ {%extends 'layout.html'%} 
+ 
+ {%block content%}
 
 <div class="listBox">
     <h1>{{content.title}}</h1>
     <p class="colDefault">
         作者<span>{{content.user.username}}</span> 时间
         <span>{{ content.addTime |date('Y-m-d H:i:s',-8*60)}}</span> 阅读
-        <span>{{content.view}}</span> 评论
-        <span>{{content.view}}</span>
+        <span>{{content.views}}</span> 评论
+        <span>{{content.comments.length}}</span>
     </p>
-    <dfn>
+    <p>
         {{content.content}}
-    </dfn>
+    </p>
 </div>
 
+<div class="listBox message">
+    <h3 class="textLeft">评论，一共有<em id="messageCount">0</em>条评论</h3>
+    {% if userInfo._id%}
+    <p class="textLeft">zmosss</p>
+    <p class="textLeft">
+        <textarea name="" id="messageContent" cols="30" rows="5"></textarea>
+        <input  type="hidden" id="contentId" value="{{content.id}}">
+        <button class="submit" id="messageBtn" >提交</button>
+    </p>
+    {%else%}
+    <p>你还没有登录，请先登录</p>
+    {%endif%}
 
+    <div class="messageList">
+        
+    </div>
+
+    <!--<div class="messageList">
+        <div class="messageBox"><p>还没有留言</p></div>
+    </div>-->
+
+    <!--<div class="messageList">
+        <div class="messageBox">
+            <p class="name"><span>admin</span><span>we</span></p>
+        </div>
+    </div>-->
+
+    <div class="pager">
+        <ul class="clear">
+            <li class="previous">
+                <a href="上一页">上一页</a>
+            </li>
+            <li></li>
+            <li class="previous">
+                <a href="下一页">下一页</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<script src="/public/js/comment.js"></script>
 {%endblock%}

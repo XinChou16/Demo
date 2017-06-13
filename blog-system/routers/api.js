@@ -4,6 +4,8 @@ var express = require('express');
 var router = express.Router();
 // 可以像操作对象一样操作数据
 var User = require('../models/User');
+//没有踩坑就不会有这条注释
+var Content = require('../models/content');
 
 // 统一返回格式
 var responseData;
@@ -123,12 +125,59 @@ router.post('/user/login',function(req,res){
 })
 
 
-// 登录路由
+// 退出
 router.get('/user/logout',(req,res) =>{
     req.cookies.set('userInfo',null);
     responseData.message = '退出',
     res.json(responseData);
 })
+
+// 获取指定文章的所有评论
+router.get('/comment/',function(req,res){
+    // 内容的ID
+    var contentid = req.query.contentid || '';
+    
+    // 查询内容的信息
+    Content.findOne({
+        _id: contentid
+    }).then(function (content) {
+        responseData.data = content.comments;
+        res.json(responseData);
+    })
+
+})
+
+
+// 评论提交
+router.post('/comment/post',function(req,res){
+    // 内容的ID
+    var contentid = req.body.contentid || '';
+    
+    var postData = {
+        username: req.userInfo.username,
+        postTime: new Date(),
+        content: req.body.content
+    }
+
+    // 查询内容的信息
+    Content.findOne({
+        _id: contentid
+    }).then(function (content) {
+        content.comments.push(postData)
+        return content.save();
+        // res.render('main/view', data);//省略html后缀
+    }).then(function(newContent){
+        responseData.code = 0;
+        responseData.data = newContent;
+        responseData.message = '评论成功';
+        res.json(responseData);//返回前端
+
+    });
+
+
+
+})
+
 
 
 module.exports = router;

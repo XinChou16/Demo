@@ -12,7 +12,6 @@ router.use(function (req, res, next) {
         userInfo: req.userInfo,
         categories: [],
     }
-
     Category.find().then(function (categories) {
         data.categories = categories;
         next();
@@ -20,6 +19,7 @@ router.use(function (req, res, next) {
 
 })
 
+// 主界面
 router.get('/', function (req, res, next) {
 
     data.category = req.body.category || '';
@@ -49,25 +49,31 @@ router.get('/', function (req, res, next) {
     }).then(function (contents) {
         data.contents = contents;
         // 渲染主页
+    console.log(data)
         res.render('main/index', data);//省略html后缀
     })
 
 });
 
+// 显示原文
 router.get('/view', function (req, res) {
+
     var contentid = req.query.contentid || '';
 
-    // 读取所有的分类信息
-    Category.findOne({
+    // res.send('hello')
+    // 读取所有的分类信息,数据在哪个对象要清楚
+    Content.findOne({
         _id: contentid
     }).then(function (content) {
-        
         data.content = content;
+        // console.log(content)
         content.views++;
         content.save();
-
+        
         res.render('main/view', data);//省略html后缀
-    })
+    });
+
 })
+
 
 module.exports = router;
