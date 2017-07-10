@@ -8,7 +8,7 @@ var swig = require('swig');
 var mongoose = require('mongoose');
 // 加载body-parser，用来处理post提交的数据
 var bodyParser = require('body-parser');
-// cookie
+// 加载cookie
 var Cookies = require('cookies')
 // 创建app应用 => nodejs http.createServer();
 var app = express();
@@ -62,7 +62,7 @@ app.use('/',require('./routers/main'));
 
 
 // 监听http请求
-mongoose.connect('mongodb://localhost:27018/blog',function(err){
+mongoose.connect('mongodb://localhost:27017/blog',function(err){
     if(err){
         console.log('数据库连接fail');
     }else {
